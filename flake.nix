@@ -28,6 +28,7 @@
       specialArgs = {inherit inputs;};
       modules = [
 	({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
+	./modules/nixos/gnome.nix
         ./hosts/default/configuration.nix
         home-manager.nixosModules.home-manager 
 	{
