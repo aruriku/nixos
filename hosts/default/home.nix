@@ -96,7 +96,7 @@
   programs.bash = {
     enable = true;
     shellAliases = {
-     update = "nix flake update ~/nixos/#default && sudo nixos-rebuild switch --flake ~/nixos/#default";
+     update = "nix flake update ~/nixos/ && sudo nixos-rebuild switch --flake ~/nixos/#default";
      ls = "lsd";
      yt-archive = "yt-dlp --embed-thumbnail --embed-subs --embed-metadata --embed-chapters --concurrent-fragments 3 --cookies-from-browser FIREFOX:3qxeajmi.default-release-1661478644995 --embed-chapters --sponsorblock-mark all --embed-info-json --sub-langs all,-live_chat --download-archive archive.txt --extractor-args 'youtube:lang=en'"; 
     };
