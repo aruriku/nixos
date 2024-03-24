@@ -110,9 +110,24 @@
   
     programs.steam = {
     enable = true;
-    gamescopeSession.enable = true;
+    # fix gamescope hang https://github.com/NixOS/nixpkgs/issues/162562#issuecomment-1523177264
+    package = pkgs.steam.override {
+      extraPkgs = pkgs: with pkgs; [
+        xorg.libXcursor
+        xorg.libXi
+        xorg.libXinerama
+        xorg.libXScrnSaver
+        libpng
+        libpulseaudio
+        libvorbis
+        stdenv.cc.cc.lib
+        libkrb5
+        keyutils
+      ];
+    };
   };
-  
+  # enable gamescope  
+  programs.gamescope.enable = true;
   #enable adb
   programs.adb.enable = true;
   
