@@ -8,10 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-    ];
-
-  #nixos overlays
-  
+    ];  
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -50,17 +47,6 @@
     LC_TELEPHONE = "en_CA.UTF-8";
     LC_TIME = "en_CA.UTF-8";
   };
-
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-  # removes xterm(don't need it)
-  services.xserver.excludePackages = [ pkgs.xterm ];
-  # disable gnome default packages that I don't want
-
 
   # Configure keymap in X11
   services.xserver = {
@@ -105,10 +91,6 @@
   services.xserver.displayManager.autoLogin.enable = true;
   services.xserver.displayManager.autoLogin.user = "gambit";
 
-  # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
-  systemd.services."getty@tty1".enable = false;
-  systemd.services."autovt@tty1".enable = false;
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -123,7 +105,20 @@
 	ffmpegthumbnailer
 	firefox
   ];
-
+   # removes xterm(don't need it)
+  services.xserver.excludePackages = [ pkgs.xterm ];
+  
+    programs.steam = {
+    enable = true;
+    gamescopeSession.enable = true;
+  };
+  
+  #enable adb
+  programs.adb.enable = true;
+  
+  #enable plymouth for graphical boot and shutdown
+  boot.plymouth.enable = true;
+  
   #custom font packages
   fonts.packages = with pkgs; [
 	noto-fonts-cjk
@@ -158,10 +153,5 @@
   # note from self: ^^ dont change it, not how you switch to a new ver or
   # to unstable. you did it through the channels command
 
-  programs.steam = {
-    enable = true;
-    gamescopeSession.enable = true;
-  };
-  programs.adb.enable = true;
-  boot.plymouth.enable = true;
+
 }
