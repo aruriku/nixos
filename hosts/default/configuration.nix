@@ -80,15 +80,7 @@
   # removes xterm(don't need it)
   services.xserver.excludePackages = [ pkgs.xterm ];
   # disable gnome default packages that I don't want
-  environment.gnome.excludePackages = (with pkgs; [
-  gnome-tour 
-  gnome-console
- ]) ++ (with pkgs.gnome; [
-  epiphany
-  geary
-  totem
-  gnome-music
-  ]);
+
 
   # Configure keymap in X11
   services.xserver = {
@@ -146,15 +138,13 @@
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
 	vim
-        gnome.gnome-terminal
-	gnomeExtensions.gsconnect
-	gnome.gnome-tweaks
+
 	adw-gtk3
 	wineWowPackages.waylandFull
 	mpv
 	ffmpegthumbnailer
 	firefox
-	unstable.resources
+
 	unstable.mesa
   ];
 
