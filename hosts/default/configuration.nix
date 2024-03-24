@@ -155,6 +155,7 @@
 	ffmpegthumbnailer
 	firefox
 	unstable.resources
+	unstable.mesa
   ];
 
   #custom font packages
