@@ -192,7 +192,10 @@
   # note from self: ^^ dont change it, not how you switch to a new ver or
   # to unstable. you did it through the channels command
 
+  programs.steam = {
+    enable = true;
+    gamescopeSession.enable = true;
+  };
   programs.adb.enable = true;
-  programs.steam.enable = true;
   boot.plymouth.enable = true;
 }
