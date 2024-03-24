@@ -122,7 +122,6 @@
 	mpv
 	ffmpegthumbnailer
 	firefox
-	unstable.mesa
   ];
 
   #custom font packages
