@@ -94,6 +94,7 @@
   };
   # shell aliases
   programs.bash = {
+    enable = true;
     shellAliases = {
      update = "nix flake update ~/nixos/#default && sudo nixos-rebuild switch --flake ~/nixos/#default";
      ls = "lsd";
