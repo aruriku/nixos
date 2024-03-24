@@ -103,6 +103,16 @@
      yt-archive = "yt-dlp --embed-thumbnail --embed-subs --embed-metadata --embed-chapters --concurrent-fragments 3 --cookies-from-browser FIREFOX:3qxeajmi.default-release-1661478644995 --embed-chapters --sponsorblock-mark all --embed-info-json --sub-langs all,-live_chat --download-archive archive.txt --extractor-args 'youtube:lang=en'"; 
     };
   };
+  
+
+  gtk = {
+    enable = true;
+    theme = {
+      name = "adw-gtk3";
+      package = pkgs.adw-gtk3;
+    };
+  };
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
   programs.git.enable = true;
