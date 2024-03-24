@@ -102,5 +102,4 @@
   programs.home-manager.enable = true;
   programs.git.enable = true;
   programs.ssh.enable = true;
-  programs.ssh.addKeysToAgent = "confirm";
 }
