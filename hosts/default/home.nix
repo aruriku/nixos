@@ -45,7 +45,7 @@
 	scrcpy
 	lsd
 	imagemagick
-	ytdlp
+	yt-dlp
 
 	(writeShellScriptBin "displayphone" ''
 	  ADB_COMMAND_START="adb shell wm size 1440x2560"
