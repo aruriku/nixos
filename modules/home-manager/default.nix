@@ -5,4 +5,5 @@
   # my-module = import ./my-module.nix;
     bash = import ./shell.nix;
     mpv = import ./mpv.nix;
+    dconf = import ./dconf.nix;
 }
