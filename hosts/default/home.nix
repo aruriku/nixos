@@ -108,9 +108,17 @@
       package = pkgs.adw-gtk3;
     };
   };
+  programs.vscode = {
+    enable = true;
+    extensions = with pkgs.vscode-extensions; [
+      jnoortheen.nix-ide
+    ];
+  };
+
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
   programs.git.enable = true;
   programs.ssh.enable = true;
+  
 }
