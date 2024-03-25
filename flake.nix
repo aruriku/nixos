@@ -12,6 +12,7 @@
 
   outputs = { self, nixpkgs, home-manager, nixpkgs-unstable, ... }@inputs: 
   let
+    inherit (self) outputs;
     pkgs = import nixpkgs;
     system = "x86_64-linux";
     overlay-unstable = final: prev: {
@@ -23,6 +24,9 @@
 
       };
   in {
+  
+    homeManagerModules = import ./modules/home-manager;
+  
     nixosConfigurations.default = nixpkgs.lib.nixosSystem {
       inherit system;
       specialArgs = {inherit inputs;};
@@ -35,7 +39,7 @@
 	  home-manager.useGlobalPkgs = true;
 	  home-manager.useUserPackages = true;
 	  home-manager.users.gambit = import ./hosts/default/home.nix; 
-	  home-manager.extraSpecialArgs = { inherit overlay-unstable; };
+	  home-manager.extraSpecialArgs = { inherit overlay-unstable outputs; };
 	}
       ];
     };
