@@ -38,12 +38,12 @@ in {
       cscale = "lanczos";
       dscale = "mitchell";
       deband = "yes";
-      scale-antiring = "1"; 
+      scale-antiring = 1; 
 
       # network streaming
       demuxer-max-back-bytes = "50Mib";
       demuxer-max-bytes = "600Mib";
-      demuxer-readahead-secs = "300";
+      demuxer-readahead-secs = 300;
       force-seekable = "yes"; # for seeking when not preloaded
 
       #screenshotting
@@ -52,7 +52,6 @@ in {
       screenshot-template = "%f-%wH.%wM.%wS.%wT-#%#00n"; # name-hour-minute-second-millisecond-ssnumb
     };
     scripts = with pkgs; [ 
-      mpvScripts.autocrop
 	    mpvScripts.thumbfast
 	    mpvScripts.sponsorblock
 	    mpvScripts.inhibit-gnome
