@@ -3,7 +3,7 @@
 {
   imports = [
     outputs.homeManagerModules.bash
-  
+    outputs.homeManagerModules.mpv
   ];
 
 
@@ -43,10 +43,6 @@
     # '')
 	element-desktop
 	lutris
-	mpvScripts.autocrop
-	mpvScripts.thumbfast
-	mpvScripts.sponsorblock
-	mpvScripts.inhibit-gnome
 	unstable.switcheroo
 	scrcpy
 	lsd
