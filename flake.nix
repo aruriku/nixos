@@ -16,13 +16,13 @@
     pkgs = import nixpkgs;
     system = "x86_64-linux";
     overlay-unstable = final: prev: {
-        # use this variant if unfree packages are needed:
-         unstable = import nixpkgs-unstable {
-	   inherit system;
-           config.allowUnfree = true;
-         };
-
+      # use this variant if unfree packages are needed:
+      unstable = import nixpkgs-unstable {
+	    inherit system;
+      config.allowUnfree = true;
       };
+
+  };
   in {
   
     homeManagerModules = import ./modules/home-manager;
@@ -34,9 +34,14 @@
 
       default = nixpkgs.lib.nixosSystem {
         modules = [
+          # import unstable packages
           ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
+
+          # system modules
           ./modules/nixos/gnome.nix
           ./hosts/default/configuration.nix
+
+          # home manager configuration
           home-manager.nixosModules.home-manager 
           {
             home-manager.useGlobalPkgs = true;
