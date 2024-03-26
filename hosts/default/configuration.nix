@@ -101,7 +101,6 @@
   #  wget
 	vim
 	wineWowPackages.waylandFull
-	mpv
 	ffmpegthumbnailer
 	firefox
   ];
