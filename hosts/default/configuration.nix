@@ -15,24 +15,15 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # networking
   networking.hostName = "haruka"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
   networking.networkmanager = { 
-  	# Enable networking
-	enable = true;
-  	# set dns servers
-  	insertNameservers = [ "192.168.2.183" "9.9.9.9" ];
+	  enable = true;
+  	insertNameservers = [ "192.168.2.183" "9.9.9.9" ]; # set dns servers
   };
 
   # enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  # Set your time zone.
-  time.timeZone = "America/Moncton";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_CA.UTF-8";
@@ -49,17 +40,8 @@
     LC_TIME = "en_CA.UTF-8";
   };
 
-  # Configure keymap in X11
-  services.xserver = {
-    layout = "us";
-    xkbVariant = "";
-  };
-
   # Enable CUPS to print documents.
   services.printing.enable = true;
-
-  # set editor to vim
-  environment.variables.EDITOR = "vim";
 
   # Enable sound with pipewire.
   sound.enable = true;
@@ -77,9 +59,6 @@
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.gambit = {
@@ -151,6 +130,9 @@
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
+  # dynamic timezone
+  services.automatic-timezoned.enable = true;
+
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
@@ -166,7 +148,7 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
   # note from self: ^^ dont change it, not how you switch to a new ver or
-  # to unstable. you did it through the channels command
+  # to unstable. you did it through the channels command (now you do it from your flake)
 
 
 }
