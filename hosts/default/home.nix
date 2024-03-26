@@ -42,25 +42,25 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-	element-desktop
-	lutris
-	unstable.switcheroo
-	scrcpy
-	lsd
-	imagemagick
-	yt-dlp
+	  element-desktop
+	  lutris
+	  unstable.switcheroo
+	  scrcpy
+	  lsd
+	  imagemagick
+	  yt-dlp
 
-	(writeShellScriptBin "displayphone" ''
-	  ADB_COMMAND_START="adb shell wm size 1440x2560"
-	  ADB_COMMAND_END="adb shell wm size 1080x2400"
-	  echo "Setting screen resolution and starting scrcpy..."
-	  $ADB_COMMAND_START
-	  scrcpy -b 30m &
-	  scrcpy_pid=$!
-	  wait $scrcpy_pid
-	  echo "scrcpy closed, restoring phone resolution..."
-	  $ADB_COMMAND_END
-	  '')
+    (writeShellScriptBin "displayphone" ''
+      ADB_COMMAND_START="adb shell wm size 1440x2560"
+      ADB_COMMAND_END="adb shell wm size 1080x2400"
+      echo "Setting screen resolution and starting scrcpy..."
+      $ADB_COMMAND_START
+      scrcpy -b 30m &
+      scrcpy_pid=$!
+      wait $scrcpy_pid
+      echo "scrcpy closed, restoring phone resolution..."
+      $ADB_COMMAND_END
+      '')
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
