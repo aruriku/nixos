@@ -15,6 +15,11 @@ with lib.hm.gvariant;
       edge-tiling = true;
       experimental-features = [ "variable-refresh-rate" ];
     };
-
+    "org/gnome/desktop/interface" = {
+      clock-format = "12h";
+      clock-show-weekday = false;
+      font-antialiasing = "grayscale";
+      font-hinting = "slight";
+    };
   };
 }
