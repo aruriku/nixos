@@ -27,21 +27,25 @@
   
     homeManagerModules = import ./modules/home-manager;
   
-    nixosConfigurations.default = nixpkgs.lib.nixosSystem {
+    nixosConfigurations = {
       inherit system;
       specialArgs = {inherit inputs;};
-      modules = [
-	({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
-	./modules/nixos/gnome.nix
-        ./hosts/default/configuration.nix
-        home-manager.nixosModules.home-manager 
-	{
-	  home-manager.useGlobalPkgs = true;
-	  home-manager.useUserPackages = true;
-	  home-manager.users.gambit = import ./hosts/default/home.nix; 
-	  home-manager.extraSpecialArgs = { inherit overlay-unstable outputs; };
-	}
-      ];
+
+
+      default = nixpkgs.lib.nixosSystem {
+        modules = [
+          ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
+          ./modules/nixos/gnome.nix
+          ./hosts/default/configuration.nix
+          home-manager.nixosModules.home-manager 
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.gambit = import ./hosts/default/home.nix; 
+            home-manager.extraSpecialArgs = { inherit overlay-unstable outputs; };
+          }
+        ];
+      };
     };
   };
 }
