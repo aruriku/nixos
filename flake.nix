@@ -24,21 +24,20 @@
 
   };
   in {
-  
+    
+    nixosModules = import ./modules/nixos;
     homeManagerModules = import ./modules/home-manager;
   
     nixosConfigurations = {
-      inherit system;
-      specialArgs = {inherit inputs;};
-
 
       default = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
         modules = [
           # import unstable packages
           ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
 
           # system modules
-          ./modules/nixos/gnome.nix
+          
           ./hosts/default/configuration.nix
 
           # home manager configuration
