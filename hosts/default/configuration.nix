@@ -23,7 +23,11 @@
   };
 
   # enable flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings = {
+    experimental-features = [ "nix-command" "flakes" ];
+    #deduplication
+    auto-optimise-store = true;
+  };
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_CA.UTF-8";
