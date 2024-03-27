@@ -29,6 +29,10 @@
     auto-optimise-store = true;
   };
 
+  # Set your time zone.
+  time.timeZone = "America/Moncton";
+
+
   # Select internationalisation properties.
   i18n.defaultLocale = "en_CA.UTF-8";
 
@@ -134,8 +138,6 @@
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
-  # dynamic timezone
-  services.automatic-timezoned.enable = true;
 
 
   # Open ports in the firewall.
