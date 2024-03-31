@@ -49,6 +49,7 @@
 	  lsd
 	  imagemagick
 	  yt-dlp
+    prismlauncher
 
     (writeShellScriptBin "displayphone" ''
       ADB_COMMAND_START="adb shell wm size 1440x2560"
