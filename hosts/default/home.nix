@@ -50,6 +50,7 @@
 	  imagemagick
 	  yt-dlp
     prismlauncher
+    gimp-with-plugins
 
     (writeShellScriptBin "displayphone" ''
       ADB_COMMAND_START="adb shell wm size 1440x2560"
