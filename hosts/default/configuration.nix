@@ -32,6 +32,7 @@
   # Set your time zone.
   time.timeZone = "America/Moncton";
 
+  
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_CA.UTF-8";
@@ -139,6 +140,9 @@
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
+  
+  # enable oom killer
+  services.earlyoom.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
