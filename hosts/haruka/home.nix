@@ -81,7 +81,7 @@
 	  yt-dlp
     prismlauncher
     gimp-with-plugins
-    #displayphone
+    displayphone
   ];
 
   gtk = {
