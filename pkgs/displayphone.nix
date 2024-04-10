@@ -21,9 +21,9 @@
     nativeBuildInputs = [ makeWrapper ];
     installPhase = ''
       mkdir -p $out/bin
-      cp displayphone.sh $out/bin/displayphone.sh
-      chmod +x $out/bin/displayphone.sh
-      wrapProgram $out/bin/displayphone.sh \
+      cp displayphone.sh $out/bin/displayphone
+      chmod +x $out/bin/displayphone
+      wrapProgram $out/bin/displayphone \
         --prefix PATH : ${lib.makeBinPath [ bash scrcpy android-tools ]}
     '';
   }

@@ -1,3 +1,4 @@
+#Standard GNOME config
 { pkgs, ... }:
 {
   #add some other core gnome apps
