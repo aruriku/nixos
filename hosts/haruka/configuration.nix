@@ -15,7 +15,7 @@
     extraSpecialArgs = { inherit inputs outputs; };
     users = {
       # Import your home-manager configuration
-      gambit = import ../home-manager/home.nix;
+      gambit = import ./home.nix;
     };
   };
 
