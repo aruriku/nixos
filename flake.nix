@@ -1,53 +1,70 @@
 {
-  description = "Nixos config flake";
+  description = "Your new nix config";
 
   inputs = {
+    # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
-    nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
-     home-manager = {
-       url = "github:nix-community/home-manager/release-23.11";
-       inputs.nixpkgs.follows = "nixpkgs";
-     };
+    # You can access packages and modules from different nixpkgs revs
+    # at the same time. Here's an working example:
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    # Also see the 'unstable-packages' overlay at 'overlays/default.nix'.
+
+    # Home manager
+    home-manager.url = "github:nix-community/home-manager/release-23.11";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    # TODO: Add any other flake you might need
+    # hardware.url = "github:nixos/nixos-hardware";
+
+    # Shameless plug: looking for a way to nixify your themes and make
+    # everything match nicely? Try nix-colors!
+    # nix-colors.url = "github:misterio77/nix-colors";
   };
 
-  outputs = { self, nixpkgs, home-manager, nixpkgs-unstable, ... }@inputs: 
-  let
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    ...
+  } @ inputs: let
     inherit (self) outputs;
-    pkgs = import nixpkgs;
-    system = "x86_64-linux";
-    overlay-unstable = final: prev: {
-      # use this variant if unfree packages are needed:
-      unstable = import nixpkgs-unstable {
-	    inherit system;
-      config.allowUnfree = true;
-      };
-
-  };
+    # Supported systems for your flake packages, shell, etc.
+    systems = [
+      "aarch64-linux"
+      "i686-linux"
+      "x86_64-linux"
+      "aarch64-darwin"
+      "x86_64-darwin"
+    ];
+    # This is a function that generates an attribute by calling a function you
+    # pass to it, with each system as an argument
+    forAllSystems = nixpkgs.lib.genAttrs systems;
   in {
-    
-    nixosModules = import ./modules/nixos;
-    homeManagerModules = import ./modules/home-manager;
-  
-    nixosConfigurations = {
+    # Your custom packages
+    # Accessible through 'nix build', 'nix shell', etc
+    packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
+    # Formatter for your nix files, available through 'nix fmt'
+    # Other options beside 'alejandra' include 'nixpkgs-fmt'
+    formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
-      default = nixpkgs.lib.nixosSystem {
+    # Your custom packages and modifications, exported as overlays
+    overlays = import ./overlays {inherit inputs;};
+    # Reusable nixos modules you might want to export
+    # These are usually stuff you would upstream into nixpkgs
+    nixosModules = import ./modules/nixos;
+    # Reusable home-manager modules you might want to export
+    # These are usually stuff you would upstream into home-manager
+    homeManagerModules = import ./modules/home-manager;
+
+    # NixOS configuration entrypoint
+    # Available through 'nixos-rebuild --flake .#your-hostname'
+    nixosConfigurations = {
+      # FIXME replace with your hostname
+      haruka = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
-          # import unstable packages
-          ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
-
-          # system modules
-          
-          ./hosts/default/configuration.nix
-
-          # home manager configuration
-          home-manager.nixosModules.home-manager 
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.gambit = import ./hosts/default/home.nix; 
-            home-manager.extraSpecialArgs = { inherit overlay-unstable outputs; };
-          }
+          # > Our main nixos configuration file <
+          ./hosts/haruka/configuration.nix
         ];
       };
     };

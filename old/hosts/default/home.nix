@@ -1,4 +1,4 @@
-{ config, pkgs, outputs, ... }:
+{ config, pkgs, outputs, inputs, lib, ... }:
 
 {
   imports = [
@@ -7,6 +7,11 @@
     outputs.homeManagerModules.dconf
   ];
 
+  nixpkgs = {
+    overlays = [
+      outputs.overlays.additions
+    ];
+  };
 
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -51,18 +56,7 @@
 	  yt-dlp
     prismlauncher
     gimp-with-plugins
-
-    (writeShellScriptBin "displayphone" ''
-      ADB_COMMAND_START="adb shell wm size 1440x2560"
-      ADB_COMMAND_END="adb shell wm size 1080x2400"
-      echo "Setting screen resolution and starting scrcpy..."
-      $ADB_COMMAND_START
-      scrcpy -b 30m &
-      scrcpy_pid=$!
-      wait $scrcpy_pid
-      echo "scrcpy closed, restoring phone resolution..."
-      $ADB_COMMAND_END
-      '')
+    #displayphone
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
