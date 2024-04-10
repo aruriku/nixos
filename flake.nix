@@ -27,7 +27,8 @@
     
     nixosModules = import ./modules/nixos;
     homeManagerModules = import ./modules/home-manager;
-  
+    overlays = import ./overlays {inherit inputs;};
+
     nixosConfigurations = {
 
       default = nixpkgs.lib.nixosSystem {
