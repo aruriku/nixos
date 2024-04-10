@@ -18,6 +18,9 @@
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
+    outputs.homeManagerModules.bash
+    outputs.homeManagerModules.mpv
+    outputs.homeManagerModules.dconf
   ];
 
   nixpkgs = {
@@ -49,9 +52,56 @@
 
   # TODO: Set your username
   home = {
-    username = "your-username";
-    homeDirectory = "/home/your-username";
+    username = "gambit";
+    homeDirectory = "/home/gambit";
   };
+  home.packages = with pkgs;  [
+    # # Adds the 'hello' command to your environment. It prints a friendly
+    # # "Hello, world!" when run.
+    # pkgs.hello
+
+    # # It is sometimes useful to fine-tune packages, for example, by applying
+    # # overrides. You can do that directly here, just don't forget the
+    # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
+    # # fonts?
+     (nerdfonts.override { fonts = [ "SourceCodePro" ]; })
+
+    # # You can also create simple shell scripts directly inside your
+    # # configuration. For example, this adds a command 'my-hello' to your
+    # # environment:
+    # (pkgs.writeShellScriptBin "my-hello" ''
+    #   echo "Hello, ${config.home.username}!"
+    # '')
+	  element-desktop
+	  lutris
+	  unstable.switcheroo
+	  scrcpy
+	  lsd
+	  imagemagick
+	  yt-dlp
+    prismlauncher
+    gimp-with-plugins
+    #displayphone
+  ];
+
+  gtk = {
+    enable = true;
+    theme = {
+      name = "adw-gtk3";
+      package = pkgs.adw-gtk3;
+    };
+  };
+  programs.vscode = {
+    enable = true;
+    extensions = with pkgs.vscode-extensions; [
+      jnoortheen.nix-ide
+      ms-vscode-remote.remote-ssh
+    ];
+  };
+  services.easyeffects = {
+    enable = true;
+  };  
+
 
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
@@ -65,5 +115,5 @@
   systemd.user.startServices = "sd-switch";
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  home.stateVersion = "23.05";
+  home.stateVersion = "23.11";
 }
