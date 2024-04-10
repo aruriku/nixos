@@ -21,6 +21,7 @@
     outputs.homeManagerModules.bash
     outputs.homeManagerModules.mpv
     outputs.homeManagerModules.dconf
+    outputs.homeManagerModules.firefox
   ];
 
   nixpkgs = {

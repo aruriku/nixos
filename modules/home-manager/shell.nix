@@ -9,7 +9,7 @@
       nd = "echo 'doing a dry-run...' && sudo nixos-rebuild dry-run --flake \"$HOME/nixos/#$(hostname)\"";
       ls = "lsd";
       la = "lsd -a";
-      yt-archive = "yt-dlp --embed-thumbnail --embed-subs --embed-metadata --embed-chapters --concurrent-fragments 3 --cookies-from-browser FIREFOX:3qxeajmi.default-release-1661478644995 --embed-chapters --sponsorblock-mark all --embed-info-json --sub-langs all,-live_chat --download-archive archive.txt --extractor-args 'youtube:lang=en'"; 
+      yt-archive = "yt-dlp --embed-thumbnail --embed-subs --embed-metadata --embed-chapters --concurrent-fragments 3 --cookies-from-browser FIREFOX:default --embed-chapters --sponsorblock-mark all --embed-info-json --sub-langs all,-live_chat --download-archive archive.txt --extractor-args 'youtube:lang=en'"; 
       };
     };
     programs.ssh = {
