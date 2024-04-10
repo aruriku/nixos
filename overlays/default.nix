@@ -12,20 +12,22 @@
     # });
     # fix gamescope hang https://github.com/NixOS/nixpkgs/issues/162562#issuecomment-1523177264
     steam = prev.steam.override {
-    extraPkgs = pkgs: with pkgs; [
-    xorg.libXcursor
-    xorg.libXi
-    xorg.libXinerama
-    xorg.libXScrnSaver
-    libpng
-    libpulseaudio
-    libvorbis
-    stdenv.cc.cc.lib
-    libkrb5
-    keyutils
+      extraPkgs = pkgs: with pkgs; [
+        xorg.libXcursor
+        xorg.libXi
+        xorg.libXinerama
+        xorg.libXScrnSaver
+        libpng
+        libpulseaudio
+        libvorbis
+        stdenv.cc.cc.lib
+        libkrb5
+        keyutils
       ];
     };
     
+    # GNOME 45 VRR PATCHES
+    # can be removed for gnome 46
     gnome = prev.gnome.overrideScope' (gfinal: gprev: {
       mutter = gprev.mutter.overrideAttrs (oldAttrs: {
         patches = (oldAttrs.patches or []) ++ [
