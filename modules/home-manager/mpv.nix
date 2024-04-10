@@ -55,6 +55,7 @@ in {
 	    mpvScripts.thumbfast
 	    mpvScripts.sponsorblock
 	    mpvScripts.inhibit-gnome
+      #autosubsync-mpv
     ];
   };
   home.file = {
