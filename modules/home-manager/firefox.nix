@@ -25,8 +25,10 @@
           # disable bing
           "Bing".metaData.hidden = true;
         };
-        # prioritise google, open tabs, and nix packages
-        search.order = [ "Google" "Tabs" "Nix Packages"];
+        # enable if search.json.mozlz4 causes problems again
+        search.force = false;
+        # prioritise google and nix packages in search
+        search.order = [ "Google" "Nix Packages"];
       };
     };
   };
