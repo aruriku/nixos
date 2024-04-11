@@ -5,12 +5,14 @@
 { config, pkgs, lib, inputs, outputs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
+  imports = [ 
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
       outputs.nixosModules.gnome
       inputs.home-manager.nixosModules.home-manager
-    ];  
+  ];  
+
+
   home-manager = {
     extraSpecialArgs = { inherit inputs outputs; };
     users = {
@@ -19,7 +21,16 @@
     };
   };
 
-    nixpkgs = {
+
+  # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.users.gambit = {
+    isNormalUser = true;
+    description = "seb";
+    extraGroups = [ "networkmanager" "wheel" "adbusers" ];
+  };
+
+
+  nixpkgs = {
     # You can add overlays here
     overlays = [
       # Add overlays your own flake exports (from overlays and pkgs dir):
@@ -45,18 +56,13 @@
   };
 
 
-
-
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
   # networking
   networking.hostName = "haruka"; # Define your hostname.
   networking.networkmanager = { 
 	  enable = true;
   	insertNameservers = [ "192.168.2.183" "9.9.9.9" ]; # set dns servers
   };
+
 
   # enable flakes
   nix.settings = {
@@ -98,37 +104,7 @@
     LC_TELEPHONE = "en_CA.UTF-8";
     LC_TIME = "en_CA.UTF-8";
   };
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
-  # Enable sound with pipewire.
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
-  };
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.gambit = {
-    isNormalUser = true;
-    description = "seb";
-    extraGroups = [ "networkmanager" "wheel" "adbusers" ];
-  };
-
-  # Enable automatic login for the user.
-  services.xserver.displayManager.autoLogin.enable = true;
-  services.xserver.displayManager.autoLogin.user = "gambit";
+  
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -140,35 +116,60 @@
 	ffmpegthumbnailer
 	firefox
   ];
-   # removes xterm(don't need it)
-  services.xserver.excludePackages = [ pkgs.xterm ];
-  
-    programs.steam = {
-    enable = true;
-    # fix gamescope hang https://github.com/NixOS/nixpkgs/issues/162562#issuecomment-1523177264
-    #package = pkgs.steam.override {
-    #  extraPkgs = pkgs: with pkgs; [
-    #    xorg.libXcursor
-    #    xorg.libXi
-    #    xorg.libXinerama
-    #    xorg.libXScrnSaver
-    #    libpng
-    #    libpulseaudio
-    #    libvorbis
-    #    stdenv.cc.cc.lib
-    #    libkrb5
-    #    keyutils
-    #  ];
-    #};
+   
+  # Enable and Configure Services
+  services = {
+    xserver = {
+      # remove xterm(don't need it)
+      excludePackages = [ pkgs.xterm ];
+      # Enable automatic login for the user.
+      displayManager.autoLogin.enable = true;
+      displayManager.autoLogin.user = "gambit";
+    };
+
+    # Enable CUPS to print documents.
+    printing.enable = true;
+
+    # Enable EarlyOOM Out of Memory Killer
+    earlyoom.enable = true;
+
+    # Enable Pipewire
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      # If you want to use JACK applications, uncomment this
+      #jack.enable = true;
+
+      # use the example session manager (no others are packaged yet so this is enabled by default,
+      # no need to redefine it in your config for now)
+      #media-session.enable = true;
+    };
   };
-  # enable gamescope  
-  programs.gamescope.enable = true;
-  #enable adb
-  programs.adb.enable = true;
-  
-  #enable plymouth for graphical boot and shutdown
-  boot.plymouth.enable = true;
-  
+
+  # Enable sound with pipewire.
+  sound.enable = true;
+  hardware.pulseaudio.enable = false;
+  security.rtkit.enable = true;
+
+  # Enable various system programs
+  programs = {
+    steam.enable = true;
+    gamescope.enable = true;
+    # Enable adb for video streaming from phone using scrcpy
+    adb.enable = true;
+  };
+   
+  # Boot configuration
+  boot = {
+    # Configure bootloader
+    loader.systemd-boot.enable = true;
+    loader.efi.canTouchEfiVariables = true;
+    # Enable graphical boot and shutdown
+    plymouth.enable = true;
+  };
+
   #custom font packages
   fonts.packages = with pkgs; [
 	noto-fonts-cjk
@@ -181,15 +182,6 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  
-  # enable oom killer
-  services.earlyoom.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
