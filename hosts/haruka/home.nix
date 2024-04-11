@@ -85,6 +85,7 @@
     displayphone
   ];
 
+  # set gtk3 theme to adw-gtk3 to match libadwaita / modern GNOME
   gtk = {
     enable = true;
     theme = {
@@ -99,9 +100,14 @@
       ms-vscode-remote.remote-ssh
     ];
   };
+
+  #Enable easy effects
+  #TODO: declare presets here
   services.easyeffects = {
     enable = true;
   };  
+
+  # Enable syncthing
   services.syncthing.enable = true;
 
 
