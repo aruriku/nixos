@@ -153,6 +153,9 @@
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
 
+  # Enable zram
+  zramSwap.enable = true;
+  
   # Enable various system programs
   programs = {
     steam.enable = true;
