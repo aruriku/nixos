@@ -25,10 +25,20 @@
           # disable bing
           "Bing".metaData.hidden = true;
         };
-        # enable if search.json.mozlz4 causes problems again
-        search.force = false;
+        #force search config changes (replaces configuration)
+        search.force = true;
         # prioritise google and nix packages in search
         search.order = [ "Google" "Nix Packages"];
+
+        settings = {
+          # Enable hardware decoding support
+          "media.ffmpeg.vaapi.enabled" = true;
+          # Disable pocket
+          "extensions.pocket.enabled" = false;
+          # Enable xdg desktop portal
+          # TODO: check that system is linux before enabling
+          "widget.use-xdg-desktop-portal.file-picker" = 1;
+        };
       };
     };
   };
