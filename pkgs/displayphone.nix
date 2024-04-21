@@ -9,21 +9,26 @@
 }:
   stdenv.mkDerivation {
     pname = "displayphone";
-    version = "e9ecd20";
+    version = "0ab93cd";
     src = fetchFromGitHub {
       # https://github.com/loliteToT/displayphone
       owner = "loliteToT";
       repo = "displayphone";
-      rev = "e9ecd200e5edc7b290b0c7e5be5e789063cd4361";
-      sha256 = "sha256-9U62z6ow0dbE6obMJ/kZSXDZT/tS3JCPjuGSwTd9kao=";
+      rev = "0ab93cdf7f9b4dd2f339562ca94dcf304ae78592";
+      sha256 = "sha256-dkKw7mAuY9Htwmji6dfvdIe1wE33KFGykHoNHy7kNTY=";
     };
     buildInputs = [ bash scrcpy android-tools ];
     nativeBuildInputs = [ makeWrapper ];
     installPhase = ''
+      #Install script
       mkdir -p $out/bin
       cp displayphone.sh $out/bin/displayphone
       chmod +x $out/bin/displayphone
       wrapProgram $out/bin/displayphone \
         --prefix PATH : ${lib.makeBinPath [ bash scrcpy android-tools ]}
+
+      mkdir -p $out/share/applications
+      cp displayphone.desktop $out/share/applications
+      chmod +x $out/share/applications/displayphone.desktop
     '';
-  }
+}
