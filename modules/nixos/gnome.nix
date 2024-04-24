@@ -1,14 +1,14 @@
 #Standard GNOME config
 { pkgs, ... }:
 {
-  #add some other core gnome apps
+  # add some other core gnome apps
   environment.systemPackages = with pkgs; [
     gnome.gnome-terminal
     gnomeExtensions.gsconnect
     gnome.gnome-tweaks
     unstable.resources
   ];
-  #gnome some default gnome apps that I don't personally use or want
+  # remove some default gnome apps that I don't personally use or want
   environment.gnome.excludePackages = (with pkgs; [
   gnome-tour 
   gnome-console
