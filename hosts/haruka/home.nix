@@ -22,6 +22,7 @@
     outputs.homeManagerModules.mpv
     outputs.homeManagerModules.dconf
     outputs.homeManagerModules.firefox
+    outputs.homeManagerModules.easyeffects
   ];
 
   nixpkgs = {
@@ -100,12 +101,6 @@
       ms-vscode-remote.remote-ssh
     ];
   };
-
-  #Enable easy effects
-  #TODO: declare presets here
-  services.easyeffects = {
-    enable = true;
-  };  
 
   # Enable syncthing
   services.syncthing.enable = true;

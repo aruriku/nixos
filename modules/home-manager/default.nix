@@ -7,4 +7,5 @@
   mpv = import ./mpv.nix;
   dconf = import ./dconf.nix;
   firefox = import ./firefox.nix;
+  easyeffects = import ./EasyEffects;
 }
