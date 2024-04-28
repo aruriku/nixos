@@ -25,7 +25,6 @@ with lib.hm.gvariant;
     };
     "org/gnome/shell/extensions/Battery-Health-Charging" = {
       charging-mode = "bal";
-      device-type = 20;
       icon-style-type = 0;
       indicator-position-max = 4;
       show-battery-panel2 = false;
