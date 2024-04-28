@@ -125,8 +125,8 @@
       # remove xterm(don't need it)
       excludePackages = [ pkgs.xterm ];
       # Enable automatic login for the user.
-      displayManager.autoLogin.enable = true;
-      displayManager.autoLogin.user = "sensei";
+      #displayManager.autoLogin.enable = true;
+      #displayManager.autoLogin.user = "sensei";
       
       # Enable firmware update
       fwupd.enable = true;
