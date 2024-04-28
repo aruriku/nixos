@@ -1,5 +1,5 @@
 #Standard GNOME config
-{ pkgs, ... }:
+{ pkgs, lib, config, ... }:
 {
   # add some other core gnome apps
   environment.systemPackages = with pkgs; [
@@ -7,7 +7,8 @@
     gnomeExtensions.gsconnect
     gnome.gnome-tweaks
     unstable.resources
-  ];
+  ] ++ lib.optionals (config.networking.hostName == "kayoko") ([
+    gnomeExtensions.battery-health-charging]);
   # remove some default gnome apps that I don't personally use or want
   environment.gnome.excludePackages = (with pkgs; [
   gnome-tour 

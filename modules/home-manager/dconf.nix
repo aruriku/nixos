@@ -23,5 +23,16 @@ with lib.hm.gvariant;
       font-antialiasing = "grayscale";
       font-hinting = "slight";
     };
+    "org/gnome/shell/extensions/Battery-Health-Charging" = {
+      charging-mode = "bal";
+      device-type = 20;
+      icon-style-type = 0;
+      indicator-position-max = 4;
+      show-battery-panel2 = false;
+      show-notifications = false;
+      show-preferences = true;
+      show-quickmenu-subtitle = true;
+      show-system-indicator = false;
+    };
   };
 }
