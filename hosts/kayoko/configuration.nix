@@ -10,6 +10,7 @@
       ./hardware-configuration.nix
       outputs.nixosModules.gnome
       inputs.home-manager.nixosModules.home-manager
+      inputs.lanzaboote.nixosModules.lanzaboote
   ];  
 
 
@@ -112,6 +113,7 @@
 	wineWowPackages.waylandFull
 	ffmpegthumbnailer
 	firefox
+  sbctl
   ];
    
   # Enable and Configure Services
@@ -164,11 +166,15 @@
   # Boot configuration
   boot = {
     # Configure bootloader
-    loader.systemd-boot.enable = true;
+    loader.systemd-boot.enable = lib.mkForce false;
     loader.efi.canTouchEfiVariables = true;
     # Enable graphical boot and shutdown
     plymouth.enable = true;
     initrd.luks.devices."luks-90633d0f-30d4-4ccc-b28c-0457acba3f55".device = "/dev/disk/by-uuid/90633d0f-30d4-4ccc-b28c-0457acba3f55";
+    lanzaboote = {
+      enable = true;
+      pkiBundle = "/etc/secureboot";
+    };
   };
 
   #custom font packages
