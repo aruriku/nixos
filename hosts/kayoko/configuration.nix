@@ -113,7 +113,10 @@
 	wineWowPackages.waylandFull
 	ffmpegthumbnailer
 	firefox
+
+  # for secure boot and tpm decryption support
   sbctl
+  tpm2-tss
   ];
    
   # Enable and Configure Services
@@ -171,10 +174,13 @@
     # Enable graphical boot and shutdown
     plymouth.enable = true;
     initrd.luks.devices."luks-90633d0f-30d4-4ccc-b28c-0457acba3f55".device = "/dev/disk/by-uuid/90633d0f-30d4-4ccc-b28c-0457acba3f55";
+    # Enable secure boot capable bootloader
     lanzaboote = {
       enable = true;
       pkiBundle = "/etc/secureboot";
     };
+    # Enable systemd in bootloader for tpm decryption
+    initrd.systemd.enable = true;
   };
 
   #custom font packages
