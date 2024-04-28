@@ -127,9 +127,6 @@
       # Enable automatic login for the user.
       #displayManager.autoLogin.enable = true;
       #displayManager.autoLogin.user = "sensei";
-      
-      # Enable firmware update
-      fwupd.enable = true;
     };
 
     # Enable CUPS to print documents.
@@ -151,6 +148,9 @@
       # no need to redefine it in your config for now)
       #media-session.enable = true;
     };
+
+    # Enable firmware update
+    fwupd.enable = true;
   };
 
   # Enable sound with pipewire.
@@ -184,6 +184,9 @@
     };
     # Enable systemd in bootloader for tpm decryption
     initrd.systemd.enable = true;
+
+    #fix hibernate
+    resumeDevice = "/dev/mapper/luks-90633d0f-30d4-4ccc-b28c-0457acba3f55";
   };
 
   #custom font packages
