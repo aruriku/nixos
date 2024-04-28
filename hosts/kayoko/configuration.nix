@@ -127,6 +127,9 @@
       # Enable automatic login for the user.
       displayManager.autoLogin.enable = true;
       displayManager.autoLogin.user = "sensei";
+      
+      # Enable firmware update
+      fwupd.enable = true;
     };
 
     # Enable CUPS to print documents.
