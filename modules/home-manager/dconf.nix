@@ -13,7 +13,7 @@ with lib.hm.gvariant;
     "org/gnome/mutter" = {
       dynamic-workspaces = true;
       edge-tiling = true;
-      experimental-features = [ "variable-refresh-rate" ];
+      experimental-features = [ "variable-refresh-rate" "scale-monitor-framebuffer" ];
     };
     "org/gnome/desktop/interface" = {
       clock-format = "12h";
