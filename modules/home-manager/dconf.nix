@@ -13,7 +13,7 @@ with lib.hm.gvariant;
     "org/gnome/mutter" = {
       dynamic-workspaces = true; # enable infinite workspaces
       edge-tiling = true; # enable side by side window snapping
-      experimental-features = [ "variable-refresh-rate" ];
+      experimental-features = [ "variable-refresh-rate" "scale-monitor-framebuffer" ];
     };
     "org/gnome/desktop/interface" = {
       # set top bar time format

@@ -11,14 +11,17 @@
       la = "lsd -a";
       yt-archive = "yt-dlp --embed-thumbnail --embed-subs --embed-metadata --embed-chapters --concurrent-fragments 3 --cookies-from-browser FIREFOX:default --embed-chapters --sponsorblock-mark all --embed-info-json --sub-langs all,-live_chat --download-archive archive.txt --extractor-args 'youtube:lang=en'"; 
       };
-    };
-    programs.ssh = {
-      enable = true;
-      matchBlocks = {
-        "aru" = {
-          hostname = "192.168.2.183";
-          user = "seb";
-        };
+  };
+  programs.ssh = {
+    enable = true;
+    matchBlocks = {
+      "aru" = {
+        hostname = "192.168.2.183";
+        user = "seb";
       };
     };
+  };
+  home.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+  };
 }

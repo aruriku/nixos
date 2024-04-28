@@ -52,8 +52,8 @@
 
   # TODO: Set your username
   home = {
-    username = "gambit";
-    homeDirectory = "/home/gambit";
+    username = "sensei";
+    homeDirectory = "/home/sensei";
   };
   home.packages = with pkgs;  [
     # # Adds the 'hello' command to your environment. It prints a friendly
@@ -73,14 +73,11 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
 	  element-desktop
-	  lutris
 	  unstable.switcheroo
 	  scrcpy
 	  lsd
 	  imagemagick
 	  yt-dlp
-    prismlauncher
-    gimp-with-plugins
     displayphone
   ];
 
@@ -93,13 +90,13 @@
     };
   };
   programs.vscode = {
+    package = pkgs.unstable.vscode;
     enable = true;
     extensions = with pkgs.vscode-extensions; [
       jnoortheen.nix-ide
       ms-vscode-remote.remote-ssh
     ];
   };
-
   # Enable syncthing
   services.syncthing.enable = true;
 
