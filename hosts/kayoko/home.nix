@@ -90,13 +90,13 @@
     };
   };
   programs.vscode = {
+    package = pkgs.unstable.vscode;
     enable = true;
     extensions = with pkgs.vscode-extensions; [
       jnoortheen.nix-ide
       ms-vscode-remote.remote-ssh
     ];
   };
-
   # Enable syncthing
   services.syncthing.enable = true;
 
