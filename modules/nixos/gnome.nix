@@ -7,7 +7,8 @@
     gnomeExtensions.gsconnect
     gnome.gnome-tweaks
     unstable.resources
-  ] ++ lib.optionals (config.networking.hostName == "kayoko") ([
+  ] ++ lib.optionals (config.networking.hostName == "kayoko") ([ # install only on laptop (stability reasons)
+    gnomeExtensions.just-perfection
     gnomeExtensions.battery-health-charging]);
   # remove some default gnome apps that I don't personally use or want
   environment.gnome.excludePackages = (with pkgs; [

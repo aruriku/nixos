@@ -100,6 +100,12 @@
   # Enable syncthing
   services.syncthing.enable = true;
 
+  # dconf to shrink gnome panel
+  dconf.settings = {
+    "org/gnome/shell/extensions/just-perfection" = {
+      panel-size = 23; # shrink panel size to 23 pixels
+    };
+  };
 
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
