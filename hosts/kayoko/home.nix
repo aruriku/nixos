@@ -104,6 +104,7 @@
   dconf.settings = {
     "org/gnome/shell/extensions/just-perfection" = {
       panel-size = 23; # shrink panel size to 23 pixels
+      panel-icon-size = 13; # to remove giant gaps between wifi, sound, battery, etc icons
     };
   };
 
