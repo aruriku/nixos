@@ -88,7 +88,7 @@
     config.nix.registry;
 
   # Set your time zone.
-  time.timeZone = "America/Moncton";
+  # time.timeZone = "America/Moncton";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_CA.UTF-8";

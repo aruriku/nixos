@@ -33,5 +33,12 @@ with lib.hm.gvariant;
       show-quickmenu-subtitle = true;
       show-system-indicator = false;
     };
+    #enable gnome location services
+    "system/location" = {
+      enabled = true;
+    };
+    "desktop/datetime" = {
+      automatic-timezone = true;
+    };
   };
 }
