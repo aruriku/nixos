@@ -44,13 +44,5 @@ with lib.hm.gvariant;
     "desktop/datetime" = {
       automatic-timezone = true;
     };
-    #TODO: also maybe make it so it matches which extensions are installed for which machine
-    # but it does silently ignore it so it should be fineee
-    "org/gnome/shell".enabled-extensions = [
-      "Battery-Health-Charging@maniacx.github.com"
-      "just-perfection-desktop@just-perfection"
-      "gsconnect@andyholmes.github.io"
-      "pip-on-top@rafostar.github.com"
-    ];
   };
 }

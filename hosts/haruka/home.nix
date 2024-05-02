@@ -100,6 +100,13 @@
     ];
   };
 
+  dconf.settings = {
+    "org/gnome/shell".enabled-extensions = [
+      "gsconnect@andyholmes.github.io"
+      "pip-on-top@rafostar.github.com"
+    ];
+  };
+
   # Enable syncthing
   services.syncthing.enable = true;
 

@@ -106,6 +106,11 @@
       panel-size = 23; # shrink panel size to 23 pixels
       panel-icon-size = 13; # to remove giant gaps between wifi, sound, battery, etc icons
     };
+    "org/gnome/shell".enabled-extensions = [
+      "Battery-Health-Charging@maniacx.github.com"
+      "just-perfection-desktop@just-perfection"
+      "pip-on-top@rafostar.github.com"
+    ];
   };
 
   # Add stuff for your user as you see fit:
