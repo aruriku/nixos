@@ -44,5 +44,9 @@ with lib.hm.gvariant;
     "desktop/datetime" = {
       automatic-timezone = true;
     };
+    # Extensions enabled for all machines
+    "org/gnome/shell".enabled-extensions = [
+      "pip-on-top@rafostar.github.com"
+    ];
   };
 }

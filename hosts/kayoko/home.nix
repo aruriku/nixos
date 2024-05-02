@@ -109,7 +109,6 @@
     "org/gnome/shell".enabled-extensions = [
       "Battery-Health-Charging@maniacx.github.com"
       "just-perfection-desktop@just-perfection"
-      "pip-on-top@rafostar.github.com"
     ];
   };
 
