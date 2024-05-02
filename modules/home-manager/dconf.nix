@@ -33,6 +33,9 @@ with lib.hm.gvariant;
       show-quickmenu-subtitle = true;
       show-system-indicator = false;
     };
+    "org/gnome/shell/extensions/pip-on-top" = {
+      stick = true;
+    };
     #enable gnome location services
     "system/location" = {
       enabled = true;
@@ -40,5 +43,14 @@ with lib.hm.gvariant;
     "desktop/datetime" = {
       automatic-timezone = true;
     };
+    #TODO: move into gnome config (merge these two configs?)
+    #TODO: also maybe make it so it matches which extensions are installed for which machine
+    # but it does silently ignore it so it should be fineee
+    "org/gnome/shell".enabled-extensions = [
+      "Battery-Health-Charging@maniacx.github.com"
+      "just-perfection-desktop@just-perfection"
+      "gsconnect@andyholmes.github.io"
+      "pip-on-top@rafostar.github.com"
+    ];
   };
 }

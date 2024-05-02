@@ -7,6 +7,7 @@
     gnomeExtensions.gsconnect
     gnome.gnome-tweaks
     unstable.resources
+    gnomeExtensions.pip-on-top
   ] ++ lib.optionals (config.networking.hostName == "kayoko") ([ # install only on laptop (stability reasons)
     gnomeExtensions.just-perfection
     gnomeExtensions.battery-health-charging]);
