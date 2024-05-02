@@ -4,6 +4,7 @@
 with lib.hm.gvariant;
 
 {
+  #TODO: move into gnome config (merge these two configs?)
   dconf.settings = {
     # custom keybinds
     "org/gnome/desktop/wm/keybindings" = {
@@ -43,7 +44,6 @@ with lib.hm.gvariant;
     "desktop/datetime" = {
       automatic-timezone = true;
     };
-    #TODO: move into gnome config (merge these two configs?)
     #TODO: also maybe make it so it matches which extensions are installed for which machine
     # but it does silently ignore it so it should be fineee
     "org/gnome/shell".enabled-extensions = [
