@@ -38,10 +38,10 @@ with lib.hm.gvariant;
       stick = true;
     };
     #enable gnome location services
-    "system/location" = {
+    "org/gnome/system/location" = {
       enabled = true;
     };
-    "desktop/datetime" = {
+    "org/gnome/desktop/datetime" = {
       automatic-timezone = true;
     };
     # Extensions enabled for all machines
