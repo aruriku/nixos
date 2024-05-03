@@ -56,6 +56,12 @@
     };
   };
 
+  # Garbage collection
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  }
 
   # networking
   networking.hostName = "kayoko"; # Define your hostname.
