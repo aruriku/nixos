@@ -23,6 +23,7 @@
     outputs.homeManagerModules.dconf
     outputs.homeManagerModules.firefox
     outputs.homeManagerModules.easyeffects
+    outputs.homeManagerModules.fastfetch
   ];
 
   nixpkgs = {

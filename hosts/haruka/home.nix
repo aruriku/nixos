@@ -23,6 +23,7 @@
     outputs.homeManagerModules.dconf
     outputs.homeManagerModules.firefox
     outputs.homeManagerModules.easyeffects
+    outputs.homeManagerModules.fastfetch
   ];
 
   nixpkgs = {
@@ -82,6 +83,7 @@
     prismlauncher
     gimp-with-plugins
     displayphone
+    gnome.gnome-boxes
   ];
 
   # set gtk3 theme to adw-gtk3 to match libadwaita / modern GNOME
