@@ -1,8 +1,8 @@
 { config, pkgs, ... }:
 {
   home.packages = [ pkgs.fastfetch ];
-  home.file."${config.xdg.configHome}/fastfetch/fastfetch.jsonc" = {
-    source = ./fastfetch.jsonc;
+  home.file."${config.xdg.configHome}/fastfetch/config.jsonc" = {
+    source = ./config.jsonc;
   };
   ##
 }
