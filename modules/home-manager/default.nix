@@ -8,4 +8,5 @@
   dconf = import ./dconf.nix;
   firefox = import ./firefox.nix;
   easyeffects = import ./EasyEffects;
+  fastfetch = import ./fastfetch;
 }
