@@ -54,8 +54,8 @@
 
   # TODO: Set your username
   home = {
-    username = "sensei";
-    homeDirectory = "/home/sensei";
+    username = "seb";
+    homeDirectory = "/home/seb";
   };
   home.packages = with pkgs;  [
     # # Adds the 'hello' command to your environment. It prints a friendly
