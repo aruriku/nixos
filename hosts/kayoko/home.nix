@@ -24,6 +24,7 @@
     outputs.homeManagerModules.firefox
     outputs.homeManagerModules.easyeffects
     outputs.homeManagerModules.fastfetch
+    outputs.homeManagerModules.sops
   ];
 
   nixpkgs = {

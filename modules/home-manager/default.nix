@@ -9,4 +9,5 @@
   firefox = import ./firefox.nix;
   easyeffects = import ./EasyEffects;
   fastfetch = import ./fastfetch;
+  sops = import ./sops;
 }
