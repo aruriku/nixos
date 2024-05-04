@@ -76,7 +76,7 @@
     automatic = true;
     dates = "weekly";
     options = "--delete-older-than 30d";
-  }
+  };
 
   # This will add each flake input as a registry
   # To make nix3 commands consistent with your flake
