@@ -17,13 +17,13 @@
     extraSpecialArgs = { inherit inputs outputs; };
     users = {
       # Import your home-manager configuration
-      gambit = import ./home.nix;
+      seb = import ./home.nix;
     };
   };
 
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.gambit = {
+  users.users.seb = {
     isNormalUser = true;
     description = "seb";
     extraGroups = [ "networkmanager" "wheel" "adbusers" ];
