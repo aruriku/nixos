@@ -195,6 +195,17 @@
     resumeDevice = "/dev/mapper/luks-90633d0f-30d4-4ccc-b28c-0457acba3f55";
   };
 
+  # Systemd service that runs alsactl restore on login to fix mic mute light.
+  systemd.services.micFix = {
+    after = [ "sound.target" "graphical.target" ];
+    description = "Restore alsa to fix mic mute light";
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = ''${pkgs.alsa-utils}/bin/alsactl restore'';
+    };
+  };
+
+
   #custom font packages
   fonts.packages = with pkgs; [
 	noto-fonts-cjk
