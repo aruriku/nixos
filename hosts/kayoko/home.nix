@@ -91,12 +91,18 @@
       package = pkgs.adw-gtk3;
     };
   };
-  programs.vscode = {
+  programs.direnv = {
+    enable = true;
+    enableBashIntegration = true;
+    nix-direnv.enable = true;
+  };
+  programs.vscode = with pkgs; {
     package = pkgs.unstable.vscode;
     enable = true;
-    extensions = with pkgs.vscode-extensions; [
-      jnoortheen.nix-ide
-      ms-vscode-remote.remote-ssh
+    extensions = with pkgs; [
+      vscode-extensions.jnoortheen.nix-ide
+      vscode-extensions.ms-vscode-remote.remote-ssh
+      vscode-extensions.mkhl.direnv
     ];
   };
   # Enable syncthing
