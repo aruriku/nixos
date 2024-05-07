@@ -25,6 +25,7 @@
     outputs.homeManagerModules.easyeffects
     outputs.homeManagerModules.fastfetch
     outputs.homeManagerModules.sops
+    outputs.homeManagerModules.dev
   ];
 
   nixpkgs = {
@@ -91,20 +92,7 @@
       package = pkgs.adw-gtk3;
     };
   };
-  programs.direnv = {
-    enable = true;
-    enableBashIntegration = true;
-    nix-direnv.enable = true;
-  };
-  programs.vscode = with pkgs; {
-    package = pkgs.unstable.vscode;
-    enable = true;
-    extensions = with pkgs; [
-      vscode-extensions.jnoortheen.nix-ide
-      vscode-extensions.ms-vscode-remote.remote-ssh
-      vscode-extensions.mkhl.direnv
-    ];
-  };
+
   # Enable syncthing
   services.syncthing.enable = true;
 

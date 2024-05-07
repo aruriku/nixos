@@ -25,6 +25,7 @@
     outputs.homeManagerModules.easyeffects
     outputs.homeManagerModules.fastfetch
     outputs.homeManagerModules.sops
+    outputs.homeManagerModules.dev
   ];
 
   nixpkgs = {
@@ -95,13 +96,6 @@
       name = "adw-gtk3";
       package = pkgs.adw-gtk3;
     };
-  };
-  programs.vscode = {
-    enable = true;
-    extensions = with pkgs.vscode-extensions; [
-      jnoortheen.nix-ide
-      ms-vscode-remote.remote-ssh
-    ];
   };
 
   dconf.settings = {
