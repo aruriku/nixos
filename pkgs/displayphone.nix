@@ -11,8 +11,8 @@
     pname = "displayphone";
     version = "0ab93cd";
     src = fetchFromGitHub {
-      # https://github.com/loliteToT/displayphone
-      owner = "loliteToT";
+      # https://github.com/aruriku/displayphone
+      owner = "aruriku;
       repo = "displayphone";
       rev = "0ab93cdf7f9b4dd2f339562ca94dcf304ae78592";
       sha256 = "sha256-dkKw7mAuY9Htwmji6dfvdIe1wE33KFGykHoNHy7kNTY=";
