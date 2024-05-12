@@ -87,7 +87,7 @@
 
   programs.displayphone = {
     enable = true;
-    height = 1080;
+    height = 1200;
     width = 1920;
   };
   # set gtk3 theme to adw-gtk3 to match libadwaita / modern GNOME
