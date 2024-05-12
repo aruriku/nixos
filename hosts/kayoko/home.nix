@@ -82,7 +82,6 @@
 	  lsd
 	  imagemagick
 	  yt-dlp
-    # displayphone
   ];
 
   programs.displayphone = {
