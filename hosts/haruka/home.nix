@@ -26,7 +26,10 @@
     outputs.homeManagerModules.fastfetch
     outputs.homeManagerModules.sops
     outputs.homeManagerModules.dev
+    outputs.homeManagerModules.displayphone
   ];
+
+
 
   nixpkgs = {
     # You can add overlays here
@@ -84,11 +87,15 @@
 	  yt-dlp
     prismlauncher
     gimp-with-plugins
-    displayphone
     gnome.gnome-boxes
     sops
   ];
 
+  programs.displayphone = {
+    enable = true;
+    height = 1440;
+    width = 2560;
+  };
   # set gtk3 theme to adw-gtk3 to match libadwaita / modern GNOME
   gtk = {
     enable = true;
