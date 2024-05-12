@@ -26,6 +26,7 @@
     outputs.homeManagerModules.fastfetch
     outputs.homeManagerModules.sops
     outputs.homeManagerModules.dev
+    outputs.homeManagerModules.displayphone
   ];
 
   nixpkgs = {
@@ -81,9 +82,14 @@
 	  lsd
 	  imagemagick
 	  yt-dlp
-    displayphone
+    # displayphone
   ];
 
+  programs.displayphone = {
+    enable = true;
+    height = 1920;  # Default or customize as needed
+    width = 1080;
+  };
   # set gtk3 theme to adw-gtk3 to match libadwaita / modern GNOME
   gtk = {
     enable = true;

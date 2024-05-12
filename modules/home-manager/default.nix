@@ -11,4 +11,5 @@
   fastfetch = import ./fastfetch;
   sops = import ./sops;
   dev = import ./dev.nix;
+  displayphone = import ./displayphone.nix;
 }
