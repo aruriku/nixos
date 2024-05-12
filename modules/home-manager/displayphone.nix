@@ -6,13 +6,13 @@
 
     height = lib.mkOption {
       type = lib.types.int;
-      default = 1920;
+      default = 1080;
       description = "The height setting for displayphone.";
     };
 
     width = lib.mkOption {
       type = lib.types.int;
-      default = 1080;
+      default = 1920;
       description = "The width setting for displayphone.";
     };
   };
