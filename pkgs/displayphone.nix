@@ -9,13 +9,13 @@
 }:
   stdenv.mkDerivation {
     pname = "displayphone";
-    version = "0ab93cd";
+    version = "3746f25";
     src = fetchFromGitHub {
       # https://github.com/aruriku/displayphone
       owner = "aruriku";
       repo = "displayphone";
-      rev = "0ab93cdf7f9b4dd2f339562ca94dcf304ae78592";
-      sha256 = "sha256-dkKw7mAuY9Htwmji6dfvdIe1wE33KFGykHoNHy7kNTY=";
+      rev = "3746f2580ce24681daff50f837ce2c9a104c85da";
+      sha256 = "sha256-SBuELU+zH3+OtyjlgTLQfDHeO+xQGuhCDJYzXch+yBA=";
     };
     buildInputs = [ bash scrcpy android-tools ];
     nativeBuildInputs = [ makeWrapper ];
