@@ -9,6 +9,7 @@
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
       outputs.nixosModules.gnome
+      outputs.nixosModules.shared
       inputs.home-manager.nixosModules.home-manager
       inputs.lanzaboote.nixosModules.lanzaboote
   ];  
@@ -69,30 +70,6 @@
 	  enable = true;
   	insertNameservers = [ "192.168.2.183" "9.9.9.9" ]; # set dns servers
   };
-
-
-  # enable flakes
-  nix.settings = {
-    experimental-features = [ "nix-command" "flakes" ];
-    #deduplication
-    auto-optimise-store = true;
-  };
-
-
-  # This will add each flake input as a registry
-  # To make nix3 commands consistent with your flake
-  nix.registry = (lib.mapAttrs (_: flake: {inherit flake;})) ((lib.filterAttrs (_: lib.isType "flake")) inputs);
-
-    # This will additionally add your inputs to the system's legacy channels
-  # Making legacy nix commands consistent as well, awesome!
-  nix.nixPath = ["/etc/nix/path"];
-  environment.etc =
-    lib.mapAttrs'
-    (name: value: {
-      name = "nix/path/${name}";
-      value.source = value.flake;
-    })
-    config.nix.registry;
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_CA.UTF-8";
@@ -163,9 +140,6 @@
   sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
-
-  # Enable zram
-  zramSwap.enable = true;
   
   # Enable various system programs
   programs = {
