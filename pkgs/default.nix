@@ -1,6 +1,10 @@
 # Custom packages, that can be defined similarly to ones from nixpkgs
 # You can build them using 'nix build .#example'
-{pkgs, ... }:
+
+# change to {pkgs, ...}: if needing to pass more than pkgs is ever needed
+# also will need to change additions in overlays/default.nix to
+# additions = final: _prev: import ../pkgs final.pkgs;
+pkgs:
 {
   # example = pkgs.callPackage ./example { };
   displayphone = pkgs.callPackage ./displayphone.nix { };
