@@ -88,7 +88,6 @@
     prismlauncher
     gimp-with-plugins
     gnome.gnome-boxes
-    sops
     spotify
   ];
 
