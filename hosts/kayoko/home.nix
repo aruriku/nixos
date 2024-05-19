@@ -82,6 +82,7 @@
 	  lsd
 	  imagemagick
 	  yt-dlp
+    joplin
   ];
 
   programs.displayphone = {
