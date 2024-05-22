@@ -11,6 +11,8 @@
       flake-registry = "";
       # Deduplicate and optimize nix store
       auto-optimise-store = true;
+      # Workaround for https://github.com/NixOS/nix/issues/9574
+      nix-path = config.nix.nixPath;
     };
     # Opinionated: disable channels
     channel.enable = false;
