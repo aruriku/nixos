@@ -104,11 +104,10 @@
     xserver = {
       # remove xterm(don't need it)
       excludePackages = [ pkgs.xterm ];
-      # Enable automatic login for the user.
-      displayManager.autoLogin.enable = true;
-      displayManager.autoLogin.user = "seb";
     };
-
+    # Enable automatic login for the user.
+    displayManager.autoLogin.enable = true;
+    displayManager.autoLogin.user = "seb";
     # Enable CUPS to print documents.
     printing.enable = true;
 
