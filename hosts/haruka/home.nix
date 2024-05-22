@@ -80,7 +80,7 @@
     # '')
 	  element-desktop
 	  lutris
-	  unstable.switcheroo
+	  switcheroo
 	  scrcpy
 	  lsd
 	  imagemagick

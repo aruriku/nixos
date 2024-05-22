@@ -7,7 +7,7 @@
     nix-direnv.enable = true;
   };
   programs.vscode = with pkgs; {
-    package = pkgs.unstable.vscode;
+    package = pkgs.unstable.vscode; # keep tracking unstable because of wayland ozone
     enable = true;
     extensions = with pkgs; [
       vscode-extensions.jnoortheen.nix-ide #nix syntax support

@@ -6,7 +6,7 @@
     gnome.gnome-terminal
     gnomeExtensions.gsconnect
     gnome.gnome-tweaks
-    unstable.resources
+    resources
     gnomeExtensions.pip-on-top
     amberol
   ] ++ lib.optionals (config.networking.hostName == "kayoko") ([ # install only on laptop (stability reasons)
