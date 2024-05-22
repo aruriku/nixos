@@ -77,7 +77,7 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
 	  element-desktop
-	  unstable.switcheroo
+	  switcheroo
 	  scrcpy
 	  lsd
 	  imagemagick
