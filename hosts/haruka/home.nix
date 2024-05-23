@@ -89,6 +89,7 @@
     gimp-with-plugins
     gnome.gnome-boxes
     spotify
+    pcsx2
   ];
 
   programs.displayphone = {
