@@ -37,7 +37,9 @@ with lib.hm.gvariant;
     "org/gnome/shell/extensions/pip-on-top" = {
       stick = true;
     };
-    #enable gnome location services
+    # enable gnome location services
+    # P.S. broken until another GNOME point release or compiled with the option re-enabled 😭. Will need to manually set timezone or declare it in config until then.
+    # https://gitlab.gnome.org/GNOME/gnome-control-center/-/issues/3032 & https://gitlab.gnome.org/GNOME/gnome-control-center/-/merge_requests/2540
     "org/gnome/system/location" = {
       enabled = true;
     };
