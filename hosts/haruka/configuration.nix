@@ -151,6 +151,15 @@
     plymouth.enable = true;
   };
 
+  # Enable btrfs transparent compression
+  # remove if not using btrfs anymore/change configuration
+  fileSystems = {
+  "/".options = [ "compress=zstd" ];
+  "/home".options = [ "compress=zstd" ];
+  "/nix".options = [ "compress=zstd" "noatime" ];
+  };
+
+
   #custom font packages
   fonts.packages = with pkgs; [
 	noto-fonts-cjk
