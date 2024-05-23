@@ -27,8 +27,8 @@
     # set its stable repo to follow mine as well
     sops-nix.inputs.nixpkgs-stable.follows = "nixpkgs";
 
-    # TODO: Add any other flake you might need
-    # hardware.url = "github:nixos/nixos-hardware";
+    # Add nixos-hardware flake for specific device support
+    nixos-hardware.url = "github:nixos/nixos-hardware";
 
     # Shameless plug: looking for a way to nixify your themes and make
     # everything match nicely? Try nix-colors!
@@ -40,6 +40,7 @@
     nixpkgs,
     home-manager,
     lanzaboote,
+    nixos-hardware,
     ...
   } @ inputs: let
     inherit (self) outputs;

@@ -11,6 +11,7 @@
       outputs.nixosModules.gnome
       outputs.nixosModules.shared
       inputs.home-manager.nixosModules.home-manager
+      inputs.nixos-hardware.nixosModules.common-cpu-amd-pstate # Enable amd pstate driver
   ];  
 
 
