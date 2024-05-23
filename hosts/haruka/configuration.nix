@@ -174,8 +174,18 @@
   # };
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  #networking.firewall.allowedTCPPorts = [ ... ]; 
+  #networking.firewall.allowedUDPPorts = [ ... ]; 
+
+  # KDE Connect / GS Connect
+  networking.firewall.allowedTCPPortRanges = [{
+    from = 1714;
+    to = 1764;
+  }]; 
+  networking.firewall.allowedUDPPortRanges = [{
+    from = 1714;
+    to = 1764;
+  }]; 
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
