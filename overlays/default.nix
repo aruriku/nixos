@@ -11,16 +11,10 @@
     # ...
     # });
     # fix gamescope hang https://github.com/NixOS/nixpkgs/issues/162562#issuecomment-1523177264
+    # fixed in commit https://github.com/NixOS/nixpkgs/commit/c75cffb303689012df35d68dcb9bffa9b64f5ad3, watch for it to enter stable
     steam = prev.steam.override {
       extraPkgs = pkgs: with pkgs; [
-        xorg.libXcursor
-        xorg.libXi
-        xorg.libXinerama
-        xorg.libXScrnSaver
-        libpng
-        libpulseaudio
-        libvorbis
-        stdenv.cc.cc.lib
+        # Gamescope fixes
         libkrb5
         keyutils
       ];
