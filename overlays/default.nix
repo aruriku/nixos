@@ -10,14 +10,18 @@
     # example = prev.example.overrideAttrs (oldAttrs: rec {
     # ...
     # });
-    # fix gamescope hang https://github.com/NixOS/nixpkgs/issues/162562#issuecomment-1523177264
-    # fixed in commit https://github.com/NixOS/nixpkgs/commit/c75cffb303689012df35d68dcb9bffa9b64f5ad3, watch for it to enter stable
+    
     steam = prev.steam.override {
+      # fix gamescope hang https://github.com/NixOS/nixpkgs/issues/162562#issuecomment-1523177264
+      # fixed in commit https://github.com/NixOS/nixpkgs/commit/c75cffb303689012df35d68dcb9bffa9b64f5ad3, watch for it to enter stable
       extraPkgs = pkgs: with pkgs; [
-        # Gamescope fixes
         libkrb5
         keyutils
       ];
+      
+      # Old source 1 game fix
+      # may need to add LD_PRELOAD=$LD_PRELOAD:/lib32/libtcmalloc_minimal.so %command% to game's launch options
+      extraLibraries = pkgs: [ pkgs.gperftools ];
     };
   };
   # When applied, the unstable nixpkgs set (declared in the flake inputs) will
