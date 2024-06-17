@@ -5,4 +5,5 @@
   # my-module = import ./my-module.nix;
   gnome = import ./gnome.nix;
   shared = import ./shared.nix;
+  sshd = import ./sshd.nix;
 }

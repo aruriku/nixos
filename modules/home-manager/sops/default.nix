@@ -10,7 +10,7 @@
   };
   home.packages = with pkgs; [
     sops
-    age
+    age # install it as part of the "secrets" toolkit
   ];
   # add pub ssh key here for simplicity sake (at least for now)
   home.file = {

@@ -10,6 +10,7 @@
       ./hardware-configuration.nix
       outputs.nixosModules.gnome
       outputs.nixosModules.shared
+      outputs.nixosModules.sshd
       inputs.home-manager.nixosModules.home-manager
       inputs.lanzaboote.nixosModules.lanzaboote # Secureboot support
       inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t14-amd-gen3 # Module for T14 specific changes (for now only enables amd pstate)
