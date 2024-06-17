@@ -35,9 +35,10 @@
       mode = "0600";
     };
   };
+  # make this portable based on hostname at some point, and move it to shell.nix for readability
   ssh = {
     matchBlocks = {
-      "*" = {
+      "*" = lib.hm.dag.entryAfter ["aru"] {
         identityFile = "~/.ssh/kayoko";
       };
     };
