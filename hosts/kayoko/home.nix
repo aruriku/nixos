@@ -35,7 +35,13 @@
       mode = "0600";
     };
   };
-
+  ssh = {
+    matchBlocks = {
+      "*" = {
+        identityFile = "~/.ssh/kayoko";
+      };
+    };
+  };
   nixpkgs = {
     # You can add overlays here
     overlays = [

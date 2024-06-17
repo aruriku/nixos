@@ -35,7 +35,13 @@
       mode = "0600";
     };
   };
-
+  programs.ssh = {
+    matchBlocks = {
+      "*" = {
+        identityFile = "~/.ssh/haruka";
+      };
+    };
+  };
   nixpkgs = {
     # You can add overlays here
     overlays = [
