@@ -29,6 +29,13 @@
     outputs.homeManagerModules.displayphone
   ];
 
+  sops = {
+    secrets.ssh-kayoko = {
+      path = "${config.home.homeDirectory}/.ssh/kayoko";
+      mode = "0600";
+    };
+  };
+
   nixpkgs = {
     # You can add overlays here
     overlays = [

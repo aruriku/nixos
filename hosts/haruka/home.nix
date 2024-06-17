@@ -29,7 +29,12 @@
     outputs.homeManagerModules.displayphone
   ];
 
-
+    sops = {
+    secrets.ssh-haruka = {
+      path = "${config.home.homeDirectory}/.ssh/haruka";
+      mode = "0600";
+    };
+  };
 
   nixpkgs = {
     # You can add overlays here
