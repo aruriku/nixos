@@ -10,6 +10,7 @@
   };
   home.packages = with pkgs; [
     sops
+    age
   ];
   # add pub ssh key here for simplicity sake (at least for now)
   home.file = {
