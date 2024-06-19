@@ -36,7 +36,7 @@
     };
   };
   # make this portable based on hostname at some point, and move it to shell.nix for readability
-  ssh = {
+  programs.ssh = {
     matchBlocks = {
       "*" = lib.hm.dag.entryAfter ["aru"] {
         identityFile = "~/.ssh/kayoko";
