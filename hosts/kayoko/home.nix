@@ -97,6 +97,7 @@
 	  imagemagick
 	  yt-dlp
     joplin-desktop
+    borgbackup
   ];
 
   programs.displayphone = {

@@ -102,6 +102,7 @@
     gnome.gnome-boxes
     spotify
     pcsx2
+    borgbackup
   ];
 
   programs.displayphone = {
