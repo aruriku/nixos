@@ -8,7 +8,7 @@ pkgs:
 {
   # example = pkgs.callPackage ./example { };
   displayphone = pkgs.callPackage ./displayphone.nix { };
-  
+  waydroid-script = pkgs.python3Packages.callPackage ./waydroid-script { };
   # commented out until ffsubsync is in the stable repos
   # not gonna change to unstable to test
   #autosubsync-mpv = pkgs.callPackage ./autosubsync-mpv.nix { };

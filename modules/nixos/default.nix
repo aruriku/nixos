@@ -6,4 +6,5 @@
   gnome = import ./gnome.nix;
   shared = import ./shared.nix;
   sshd = import ./sshd.nix;
+  waydroid = import ./waydroid.nix;
 }
