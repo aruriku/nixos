@@ -162,6 +162,8 @@
   "/nix".options = [ "compress=zstd" "noatime" ];
   };
 
+  # Enable virtualization
+  virtualisation.libvirtd.enable = true;
 
   #custom font packages
   fonts.packages = with pkgs; [
