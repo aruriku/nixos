@@ -1,0 +1,15 @@
+    # Fractional scaling patches. It allows XWayland apps to use the native screen res instead of the fake scaled res. 
+    # The patchset is for Mutter 46.2
+    # Patchset taken from: https://aur.archlinux.org/packages/mutter-xwayland-scaling
+    # Ended up not using it because in its current state (June 2024), It uses a resolution as if it was using 200% scaling, not 125%.
+    # This makes everything tiny.
+    gnome = prev.gnome.overrideScope (gfinal: gprev: {
+      mutter = gprev.mutter.overrideAttrs (oldAttrs: {
+        patches = (oldAttrs.patches or []) ++ [
+          (prev.fetchpatch {
+            url = "https://aur.archlinux.org/cgit/aur.git/plain/xwayland-scaling.patch?h=mutter-xwayland-scaling&id=18c6f10f5711801d0b2e81806fca4e13c8cbcd2c";
+            sha256 = "sha256-nU/PVVyP4Pjamblai0fASzr/V/o6aX90iUzVKBLBPlY=";
+          })
+        ];
+      });
+    });

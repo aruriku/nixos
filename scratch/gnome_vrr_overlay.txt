@@ -1,6 +1,6 @@
 # GNOME 45 VRR PATCHES
 # can be removed for gnome 46
-gnome = prev.gnome.overrideScope' (gfinal: gprev: {
+gnome = prev.gnome.overrideScope (gfinal: gprev: {
     mutter = gprev.mutter.overrideAttrs (oldAttrs: {
     patches = (oldAttrs.patches or []) ++ [
         (prev.fetchpatch {
