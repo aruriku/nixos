@@ -23,7 +23,8 @@
     };
   };
   home.sessionVariables = {
-    NIXOS_OZONE_WL = "1";
+    NIXOS_OZONE_WL = "1"; # Enable Wayland for Electron apps
     EDITOR = "vim";
+    I_WANT_A_BROKEN_WAYLAND_UI = "1"; # Enable Wayland for PCSX2
   };
 }

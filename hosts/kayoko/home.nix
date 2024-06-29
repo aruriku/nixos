@@ -98,6 +98,8 @@
 	  yt-dlp
     joplin-desktop
     borgbackup
+    pcsx2
+    lutris
   ];
 
   programs.displayphone = {

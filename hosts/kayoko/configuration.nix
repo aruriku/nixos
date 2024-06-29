@@ -147,6 +147,7 @@
   # Enable various system programs
   programs = {
     steam.enable = true;
+    steam.extraCompatPackages = [ pkgs.proton-ge-bin ];
     gamescope.enable = true;
     # Enable adb for video streaming from phone using scrcpy
     adb.enable = true;
