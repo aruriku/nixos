@@ -149,6 +149,7 @@
     steam.enable = true;
     steam.extraCompatPackages = [ pkgs.proton-ge-bin ];
     gamescope.enable = true;
+    gamescope.package = pkgs.unstable.gamescope; # Latest version fixes mouse offset with fractional scaling
     # Enable adb for video streaming from phone using scrcpy
     adb.enable = true;
   };
