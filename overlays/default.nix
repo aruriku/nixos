@@ -12,11 +12,14 @@
     # });
     
     steam = prev.steam.override {
-      # fix gamescope hang https://github.com/NixOS/nixpkgs/issues/162562#issuecomment-1523177264
-      # fixed in commit https://github.com/NixOS/nixpkgs/commit/c75cffb303689012df35d68dcb9bffa9b64f5ad3, watch for it to enter stable
       extraPkgs = pkgs: with pkgs; [
+        # fix gamescope hang https://github.com/NixOS/nixpkgs/issues/162562#issuecomment-1523177264
+        # fixed in commit https://github.com/NixOS/nixpkgs/commit/c75cffb303689012df35d68dcb9bffa9b64f5ad3, watch for it to enter stable
         libkrb5
         keyutils
+
+        #install mangohud to steam
+        mangohud
       ];
       
       # Old source 1 game fix
