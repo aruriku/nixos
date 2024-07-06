@@ -169,6 +169,7 @@
   #custom font packages
   fonts.packages = with pkgs; [
 	noto-fonts-cjk
+  noto-fonts-cjk-serif
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
