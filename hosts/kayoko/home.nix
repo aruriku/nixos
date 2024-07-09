@@ -100,6 +100,7 @@
     borgbackup
     pcsx2
     lutris
+    gimp
   ];
 
   programs.displayphone = {
