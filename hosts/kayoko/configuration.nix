@@ -153,7 +153,12 @@
     # Enable adb for video streaming from phone using scrcpy
     adb.enable = true;
   };
-   
+  
+  # Enable xone so I can disable the annoying light on my xbox controller :)
+  # echo 0 | sudo tee /sys/class/leds/gip*/mode
+  # Also temporary(?) Can be removed when I'm back home.
+  hardware.xone.enable = true;
+
   # Boot configuration
   boot = {
     # Configure bootloader
@@ -169,6 +174,7 @@
     };
     # Enable systemd in bootloader for tpm decryption
     initrd.systemd.enable = true;
+
 
     #fix hibernate
     resumeDevice = "/dev/mapper/luks-90633d0f-30d4-4ccc-b28c-0457acba3f55";
