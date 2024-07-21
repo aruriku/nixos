@@ -22,7 +22,10 @@
     totem
     gnome-music
   ]);
-
+  # install inter font (remove for 47(?)), enable with manually or use dconf.nix
+  fonts.packages = with pkgs; [
+  inter
+  ];
 
   ##gnome configurations
 

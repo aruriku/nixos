@@ -23,6 +23,9 @@ with lib.hm.gvariant;
       # set my fonts to how I prefer it
       font-antialiasing = "grayscale";
       font-hinting = "slight";
+      #needs the Inter font installed!!!
+      font-name = "Inter Variable 10.5";
+
     };
     "org/gnome/shell/extensions/Battery-Health-Charging" = {
       charging-mode = "bal";
