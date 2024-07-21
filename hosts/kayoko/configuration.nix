@@ -153,11 +153,6 @@
     # Enable adb for video streaming from phone using scrcpy
     adb.enable = true;
   };
-  
-  # Enable xone so I can disable the annoying light on my xbox controller :)
-  # echo 0 | sudo tee /sys/class/leds/gip*/mode
-  # Also temporary(?) Can be removed when I'm back home.
-  hardware.xone.enable = true;
 
   # Boot configuration
   boot = {
