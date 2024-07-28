@@ -1,5 +1,5 @@
   # Shared configs between systems.
-  { config, lib, inputs, ... }:
+  { config, lib, inputs, pkgs, ... }:
   {
   nix = let
     flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
@@ -21,10 +21,15 @@
     registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;
     nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
   };
-  
-  # make sure dconf is enabled for apps that need to use it
-  dconf.enable = true;
 
   # Enable zram
   zramSwap.enable = true;
+
+  # Install a standard set of command-line tools
+  environment.systemPackages = with pkgs; [
+    vim
+    util-linux
+    usbutils
+  ];
+  programs.mtr.enable = true;
 }
