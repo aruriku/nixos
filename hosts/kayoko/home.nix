@@ -20,7 +20,6 @@
     # ./nvim.nix
     outputs.homeManagerModules.bash
     outputs.homeManagerModules.mpv
-    outputs.homeManagerModules.dconf
     outputs.homeManagerModules.firefox
     outputs.homeManagerModules.easyeffects
     outputs.homeManagerModules.fastfetch
@@ -101,20 +100,13 @@
     pcsx2
     lutris
     gimp
+    unstable.fractal
   ];
 
   programs.displayphone = {
     enable = true;
     height = 1200;
     width = 1920;
-  };
-  # set gtk3 theme to adw-gtk3 to match libadwaita / modern GNOME
-  gtk = {
-    enable = true;
-    theme = {
-      name = "adw-gtk3";
-      package = pkgs.adw-gtk3;
-    };
   };
 
   # Enable syncthing
@@ -131,10 +123,6 @@
       "just-perfection-desktop@just-perfection"
     ];
   };
-
-  # Add stuff for your user as you see fit:
-  # programs.neovim.enable = true;
-  # home.packages = with pkgs; [ steam ];
 
   # Enable home-manager and git
   programs.home-manager.enable = true;

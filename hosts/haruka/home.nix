@@ -20,7 +20,6 @@
     # ./nvim.nix
     outputs.homeManagerModules.bash
     outputs.homeManagerModules.mpv
-    outputs.homeManagerModules.dconf
     outputs.homeManagerModules.firefox
     outputs.homeManagerModules.easyeffects
     outputs.homeManagerModules.fastfetch
@@ -110,14 +109,6 @@
     height = 1440;
     width = 2560;
   };
-  # set gtk3 theme to adw-gtk3 to match libadwaita / modern GNOME
-  gtk = {
-    enable = true;
-    theme = {
-      name = "adw-gtk3";
-      package = pkgs.adw-gtk3;
-    };
-  };
 
   dconf.settings = {
     "org/gnome/shell".enabled-extensions = [
@@ -127,11 +118,6 @@
 
   # Enable syncthing
   services.syncthing.enable = true;
-
-
-  # Add stuff for your user as you see fit:
-  # programs.neovim.enable = true;
-  # home.packages = with pkgs; [ steam ];
 
   # Enable home-manager and git
   programs.home-manager.enable = true;

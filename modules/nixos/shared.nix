@@ -22,6 +22,9 @@
     nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
   };
   
+  # make sure dconf is enabled for apps that need to use it
+  dconf.enable = true;
+
   # Enable zram
   zramSwap.enable = true;
 }
