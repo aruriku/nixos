@@ -30,6 +30,7 @@
     vim
     util-linux
     usbutils
+    ncdu
   ];
   programs.mtr.enable = true;
 }
