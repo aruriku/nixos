@@ -102,6 +102,7 @@
     spotify
     pcsx2
     borgbackup
+    unstable.heroic
   ];
 
   programs.displayphone = {
