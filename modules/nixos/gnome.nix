@@ -1,5 +1,9 @@
 #Standard GNOME config
 { pkgs, lib, config, home-manager, ... }:
+
+# for the dconf values that need gvariant for some datatypes.
+with lib.gvariant;
+
 {
   # add some other core gnome apps
   environment.systemPackages = with pkgs; [
@@ -8,6 +12,8 @@
     gnome.gnome-tweaks
     resources
     gnomeExtensions.pip-on-top
+    gnomeExtensions.compiz-windows-effect
+    tiling-shell
     amberol
     ffmpegthumbnailer
   ] ++ lib.optionals (config.networking.hostName == "kayoko") ([ # install only on laptop (stability reasons)
@@ -43,6 +49,7 @@
 
   #set home manager shared values for gnome configurations
   home-manager.sharedModules = [
+
     {
       # set gtk3 theme to adw-gtk3 to match libadwaita / modern GNOME
       gtk = {
@@ -99,7 +106,21 @@
         # Extensions enabled for all machines
         "org/gnome/shell".enabled-extensions = [
           "pip-on-top@rafostar.github.com"
+          "tilingshell@ferrarodomenico.com"
+          "compiz-windows-effect@hermes83.github.com"
         ];
+        "org/gnome/shell/extensions/tilingshell" = {
+          enable-blur-snap-assistant = false;
+          enable-span-multiple-tiles = false;
+          enable-tiling-system = false;
+          inner-gaps = mkUint32 5;
+          layouts-json = "[{\"id\":\"269691\",\"tiles\":[{\"x\":0,\"y\":0,\"width\":0.5,\"height\":1,\"groups\":[1]},{\"x\":0.5,\"y\":0,\"width\":0.49999999999999967,\"height\":1,\"groups\":[1]}]},{\"id\":\"283880\",\"tiles\":[{\"x\":0.5,\"y\":0,\"width\":0.4999999999999999,\"height\":0.5003548616039745,\"groups\":[3,1]},{\"x\":0,\"y\":0,\"width\":0.5,\"height\":0.5003548616039745,\"groups\":[1,2]},{\"x\":0,\"y\":0.5003548616039745,\"width\":0.5,\"height\":0.4996451383960254,\"groups\":[2,1]},{\"x\":0.5,\"y\":0.5003548616039745,\"width\":0.4999999999999999,\"height\":0.4996451383960254,\"groups\":[3,1]}]},{\"id\":\"323241\",\"tiles\":[{\"x\":0,\"y\":0,\"width\":0.5,\"height\":1,\"groups\":[1]},{\"x\":0.5,\"y\":0,\"width\":0.4999999999999999,\"height\":0.5003548616039745,\"groups\":[2,1]},{\"x\":0.5,\"y\":0.5003548616039745,\"width\":0.4999999999999999,\"height\":0.4996451383960254,\"groups\":[2,1]}]},{\"id\":\"342373\",\"tiles\":[{\"x\":0,\"y\":0,\"width\":0.5,\"height\":0.5003548616039745,\"groups\":[1,2]},{\"x\":0.5,\"y\":0,\"width\":0.49999999999999967,\"height\":1,\"groups\":[1]},{\"x\":0,\"y\":0.5003548616039745,\"width\":0.5,\"height\":0.49964513839602553,\"groups\":[2,1]}]}]";
+          outer-gaps = mkUint32 0;
+          overridden-settings = "{\"org.gnome.mutter.keybindings\":{\"toggle-tiled-right\":\"['<Super>Right']\",\"toggle-tiled-left\":\"['<Super>Left']\"},\"org.gnome.desktop.wm.keybindings\":{\"maximize\":\"['<Super>Up']\",\"unmaximize\":\"['<Super>Down', '<Alt>F5']\"},\"org.gnome.mutter\":{\"edge-tiling\":\"true\"}}";
+          override-window-menu = false;
+          selected-layouts = [ "269691" ]; # Sets the default layout to the standard gnome side by side tiling
+          top-edge-maximize = true;
+        };
       };
     }
     ];
