@@ -12,7 +12,7 @@ stdenvNoCC.mkDerivation rec {
 
   src = fetchzip {
     url = "https://github.com/domferr/tilingshell/releases/download/${version}/${uuid}.zip";
-    hash = "sha256-PvtGG33pA7yHAqW+UIclWGQS80V8SFdiLrb0OaxyWj4=";
+    hash = "sha256-FVy2XtPnj+qVN5e1H6P48nvZxv/Y8KzctcxdQ1WuYVM=";
     stripRoot = false;
   };
 
